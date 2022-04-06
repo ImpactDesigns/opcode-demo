@@ -9,6 +9,7 @@ const H1 = styled.h1`
   margin: 0px 0px 24px 0px;
   color: #586165;
   font-weight: 700;
+  text-transform: uppercase;
 `
 
 const Image = styled.img`
@@ -35,6 +36,7 @@ function App() {
             <Button 
               label={(spinDirection === 'right' ? 'Left' : 'Right')}
               buttonType={'primary'} 
+              className={'pry-btn'}
               onclick={() => changeSpinDirection(spinDirection, setSpinDirection)} 
             />
           </div>
@@ -42,6 +44,7 @@ function App() {
             <Button 
               label={'Speed up'} 
               buttonType={'secondary'} 
+              className={'sry-btn'}
               onclick={() => alert('button has been fired')}
             />
           </div>

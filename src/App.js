@@ -8,7 +8,14 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <h1 style={{ margin: '0px 0px 24px 0px', color: '#586165', fontWeight: '700' }}>Hello</h1>
-        <Button label={'Guten Tag'} buttonType={'primary'} />
+        <div style={{ display: 'flex' }}>
+          <div style={{ padding: '20px' }}>
+            <Button label={'Primary'} buttonType={'primary'} />
+          </div>
+          <div style={{padding: '20px' }}>
+            <Button label={'Secondary'} buttonType={'secondary'} />
+          </div>
+        </div>
       </header>
     </div>
   );

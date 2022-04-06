@@ -34,3 +34,19 @@ export function setAnimation(spinDir) {
         return spinLeft
     }
 }
+
+export function determineSpeed(spinSpeed) {
+    if (spinSpeed === 'fast') {
+        return `1000ms`
+    } else if (spinSpeed === 'slow') {
+        return `5000ms`
+    }
+}
+
+export function changeSpinSpeed(spinSpeed, speedSetter) {
+    if (spinSpeed === 'fast') {
+      speedSetter(() => 'slow')
+    } else if (spinSpeed === 'slow') {
+      speedSetter(() => 'fast')
+    }
+  }

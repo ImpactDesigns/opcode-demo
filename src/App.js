@@ -1,7 +1,12 @@
 import React, { useState } from 'react'
 import styled, { css } from 'styled-components'
 import { Button } from 'opcode-demo-lib'
-import { changeSpinDirection, setAnimation } from './utils'
+import { 
+  changeSpinDirection, 
+  setAnimation, 
+  determineSpeed, 
+  changeSpinSpeed 
+} from './utils'
 import './App.css';
 import logo from './logo.svg';
 
@@ -20,7 +25,9 @@ const Image = styled.img`
 
 function App() {
   const [spinDirection, setSpinDirection] = useState('right') 
+  const [spinSpeed, setSpinSpeed] = useState('slow')
   const spin = setAnimation(spinDirection)
+  const speed = determineSpeed(spinSpeed)
   
   return (
     <div className="App">
@@ -28,7 +35,7 @@ function App() {
         <Image 
           src={logo} 
           alt={'logo'}
-          animation={css`${spin} infinite 20s linear`}
+          animation={css`${spin} infinite ${speed} linear`}
         />
         <H1>Spin</H1>
         <div style={{  }}>
@@ -42,10 +49,10 @@ function App() {
           </div>
           <div style={{padding: '20px' }}>
             <Button 
-              label={'Speed up'} 
+              label={(spinSpeed === 'slow' ? 'Fast' : 'Slow')} 
               buttonType={'secondary'} 
               className={'sry-btn'}
-              onclick={() => alert('button has been fired')}
+              onclick={() => changeSpinSpeed(spinSpeed, setSpinSpeed)}
             />
           </div>
         </div>

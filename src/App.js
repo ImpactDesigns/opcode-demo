@@ -23,6 +23,10 @@ const Image = styled.img`
     animation: ${props => props.animation}
 `
 
+const NewButton = styled(Button)`
+    min-width: 100%;
+`
+
 function App() {
     const [spinDirection, setSpinDirection] = useState('right') 
     const [spinSpeed, setSpinSpeed] = useState('slow')
@@ -31,7 +35,7 @@ function App() {
     const [formName, setFormName] = useState(null)
     const [formEmail, setFormEmail] = useState(null)
 
-    console.log(777999, formName, formEmail)
+    // console.log(777999, formName, formEmail)
 
     function handleInputBlur(inputVal, formSetter) {
         formSetter(() => inputVal)
@@ -63,7 +67,7 @@ function App() {
                             onclick={() => changeSpinSpeed(spinSpeed, setSpinSpeed)}
                         />
                     </div>
-                    <form style={{ padding: '20px', border: '2px solid green' }}>
+                    <form style={{ padding: '20px' }}>
                         <Input 
                             type={'text'}
                             label={'Email'}
@@ -76,6 +80,12 @@ function App() {
                             label={'Email'}
                             placeholder={'Enter your email'}
                             blur={(val) => handleInputBlur(val, setFormEmail)}
+                        />
+
+                        <NewButton 
+                            label={'Submit'} 
+                            buttonType={'primary'} 
+                            onclick={() => console.log(formName, formEmail)}
                         />
                     </form>
                 </div>
